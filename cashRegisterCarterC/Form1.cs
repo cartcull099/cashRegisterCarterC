@@ -9,10 +9,17 @@ using System.Threading;
 using System.Windows.Forms;
 using System.Media;
 
+/*Cash Register Summative
+Carter Culliton
+October 17, 2018*/
+
 namespace cashRegisterCarterC
 {
     public partial class Form1 : Form
     {
+        //Setting up variables for costs, tax rates..., creating graphics object, pen and brush
+        
+        
         double burgers, fries, drink, subtotal, tax, total, tendered, change;
 
         const double BURGERCOST = 2.49, FRIESCOST = 1.89, DRINKCOST = 0.99, TAX = 0.13;
@@ -26,9 +33,13 @@ namespace cashRegisterCarterC
 
         private void calcButton_Click(object sender, EventArgs e)
         {
+            //Setting variables to equal what is in textboxes
+
             burgers = Convert.ToInt16(numBurgers.Text);
             fries = Convert.ToInt16(numFries.Text);
             drink = Convert.ToInt16(numDrinks.Text);
+
+            //Calculating subtotal and total
 
             subtotal = (burgers * BURGERCOST) + (fries * FRIESCOST) + (drink * DRINKCOST);
             tax = subtotal * TAX;
@@ -40,6 +51,8 @@ namespace cashRegisterCarterC
 
         private void calcChange_Click(object sender, EventArgs e)
         {
+            //Setting tendered variable to equal what user inputs, calculating and outputting change 
+
             tendered = Convert.ToInt16(tenderText.Text);
 
             change = tendered - total;
@@ -49,8 +62,7 @@ namespace cashRegisterCarterC
 
         private void reciptButton_Click(object sender, EventArgs e)
         {
-           
-
+            //Printing recipt
 
             Font drawFont = new Font("Arial", 16, FontStyle.Bold);
             Font drawFont2 = new Font("Consolas", 12, FontStyle.Bold);
@@ -85,6 +97,8 @@ namespace cashRegisterCarterC
 
         private void newbutton_Click(object sender, EventArgs e)
         {
+            //Resetting textboxes, variables and outputs
+
             numBurgers.Text = "";
             numDrinks.Text = "";
             numFries.Text = "";
