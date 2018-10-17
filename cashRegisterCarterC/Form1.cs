@@ -83,7 +83,7 @@ namespace cashRegisterCarterC
         }
         public Form1()
         {
-            InitializeComponent();
+            InitializeComponent();  
         }
     }
 }
