@@ -18,7 +18,10 @@ namespace cashRegisterCarterC
         const double BURGERCOST = 2.49, FRIESCOST = 1.89, DRINKCOST = 0.99, TAX = 0.13;
 
         SoundPlayer player = new SoundPlayer(Properties.Resources.Printer);
-        
+
+        Graphics g;
+        Pen drawPen = new Pen(Color.Black, 2);
+        SolidBrush drawBrush = new SolidBrush(Color.Black);
 
 
         private void calcButton_Click(object sender, EventArgs e)
@@ -46,9 +49,7 @@ namespace cashRegisterCarterC
 
         private void reciptButton_Click(object sender, EventArgs e)
         {
-            Graphics g = this.CreateGraphics();
-            Pen drawPen = new Pen(Color.Black, 2);
-            SolidBrush drawBrush = new SolidBrush(Color.Black);
+           
 
 
             Font drawFont = new Font("Arial", 16, FontStyle.Bold);
@@ -80,10 +81,37 @@ namespace cashRegisterCarterC
             g.DrawString("Tendered       " + tendered.ToString("C"), drawFont2, drawBrush, 300, 400);
             Thread.Sleep(500);
             g.DrawString("Change         " + change.ToString("C"), drawFont2, drawBrush, 300, 425);
+         }
+
+        private void newbutton_Click(object sender, EventArgs e)
+        {
+            numBurgers.Text = "";
+            numDrinks.Text = "";
+            numFries.Text = "";
+            tenderText.Text = "";
+
+            burgers = 0;
+            fries = 0;
+            drink = 0;
+            subtotal = 0;
+            tax = 0;
+            total = 0;
+            tendered = 0;
+            change = 0;
+
+            totalLabel.Text = "";
+            changelabel.Text = "";
+
+            Refresh();
         }
+
+
+
+
         public Form1()
         {
-            InitializeComponent();  
+            InitializeComponent();
+            g = this.CreateGraphics();
         }
     }
 }

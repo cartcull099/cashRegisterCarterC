@@ -171,7 +171,9 @@
             this.newbutton.Name = "newbutton";
             this.newbutton.Size = new System.Drawing.Size(75, 23);
             this.newbutton.TabIndex = 16;
+            this.newbutton.Text = "New Order";
             this.newbutton.UseVisualStyleBackColor = true;
+            this.newbutton.Click += new System.EventHandler(this.newbutton_Click);
             // 
             // Form1
             // 
